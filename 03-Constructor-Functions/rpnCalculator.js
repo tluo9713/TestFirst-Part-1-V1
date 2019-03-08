@@ -9,9 +9,6 @@ function RPNCalculator() {
     };
 
 
-
-
-    
 }
 
 RPNCalculator.prototype.plus = function() {
