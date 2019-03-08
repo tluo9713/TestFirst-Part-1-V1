@@ -67,8 +67,6 @@ function createObjectWithClosures() {
 
 function guestListFns(guestListArray, secretCode) {
     var hiddenGuestArray = [];
-    var test = guestListArray.slice(0);
-    console.log (test);
 
     for (var i=0; i<guestListArray.length; i++) {
         let name = guestListArray[i];
