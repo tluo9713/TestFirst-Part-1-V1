@@ -1,17 +1,16 @@
 
 
-
 function concatString(...input) {
     let inputArray = [...input];
-    return inputArray.join("");
+    return inputArray.join('');
 }
 
 
 function yourFunctionRunner(...inputFunction) {
-    let str = "";
+    let str = '';
     let inputFunctionArray = [...inputFunction];
 
-    for (var i =0 ; i< inputFunctionArray.length; i++) {
+    for (var i = 0 ; i < inputFunctionArray.length; i++) {
         str += inputFunctionArray[i]();
     }
     return str;
@@ -20,16 +19,14 @@ function yourFunctionRunner(...inputFunction) {
 
 function makeAdder(num) {
     return function(insert) {
-        return insert+num;
+        return insert + num;
     }
 }
-
 
 
 function once(input) {
     var didYouRunOnceYet = false;
     return function() {
-        
         if (!didYouRunOnceYet) {
             didYouRunOnceYet = true;
             return input();
@@ -38,24 +35,23 @@ function once(input) {
 }
 
 
-
 function createObjectWithClosures() {
     let placeHolder = 0;
     let objClosure = {
 
-        oneIncrementer : function() {
+        oneIncrementer: function() {
             placeHolder++;
         },
 
-        tensIncrementer : function () {
-            placeHolder+=10;
+        tensIncrementer: function () {
+            placeHolder += 10;
         },
 
-        getValue : function () {
+        getValue: function () {
             return placeHolder;
         },
 
-        setValue : function(input) {
+        setValue: function(input) {
             placeHolder = input;
         }
     }
@@ -64,34 +60,29 @@ function createObjectWithClosures() {
 }
 
 
-
 function guestListFns(guestListArray, secretCode) {
     var hiddenGuestArray = [];
 
-    for (var i=0; i<guestListArray.length; i++) {
-        let name = guestListArray[i];
+    for (var i = 0; i < guestListArray.length; i++) {
+        const name = guestListArray[i];
         var dummy = function(num) {
-            
             if (num === secretCode) {
                 return name;
             } else {
-                return "Secret-Code: Invalid";
+                return 'Secret-Code: Invalid';
             }
         }
-        
         hiddenGuestArray.push(dummy);
-        
     }
 
     return hiddenGuestArray;
 }
 
 
-
 function generateGuestList(secretList, secretCode) {
     var guestList = [];
 
-    for (var i = 0; i<secretList.length; i++) {
+    for (var i = 0; i < secretList.length; i++) {
         var name = secretList[i](secretCode);
         guestList.push(name);
     }

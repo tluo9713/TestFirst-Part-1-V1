@@ -1,31 +1,26 @@
 
 
-
 function createCalculator() {
-    
     let calculator = {
-        display : 0,
+        display: 0,
 
-        value : function() {
+        value: function() {
             return this.display;
         },
 
-        add : function(num) {
+        add: function(num) {
             this.display += num;
         },
 
-        subtract : function(num) {
+        subtract: function(num) {
             this.display -= num;
         },
 
-        clear : function() {
+        clear: function() {
             this.display = 0;
         }
 
-        
     };
-
-
 
     return calculator;
 }

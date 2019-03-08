@@ -1,54 +1,52 @@
 
 
-
-function repeat(str,num) {
-    let returnString = "";
-    
+function repeat(str, num) {
+    let returnString = '';
     for (let i = 0; i < num; i++) {
-        returnString+= str;
+        returnString += str;
     }
     return returnString;
 }
 
 
 function sum(arr) {
-    let sum = 0;
+    let total = 0;
 
-    for (let i = 0; i< arr.length; i++ ) {
-        sum+= arr[i];
+    for (let i = 0; i < arr.length; i++ ) {
+        total += arr[i];
     }
-    return sum;
+    return total;
 }
 
 
-function join(arr, delimiter = "") {
-    let joinedString = "";
+function join(arr, delimiter = '') {
+    let joinedString = '';
 
-    for (let i = 0; i< arr.length; i++) {
-        if (i!==0) {
-            joinedString+= delimiter;
+    for (let i = 0; i < arr.length; i++) {
+        if (i !== 0) {
+            joinedString += delimiter;
         }
-        joinedString+= arr[i];
+        joinedString += arr[i];
     }
 
     return joinedString;
 }
 
 function gridGenerator(num) {
-    let grid = "";
+    let grid = '';
 
-    for (var i = 0; i<num; i++) {
+    for (var i = 0; i < num; i++) {
 
-        for (var j = 0; j<num; j++) {
+        for (var j = 0; j < num; j++) {
 
-            if (i%2 === j%2) {
-                grid+= "#";
+            if (i % 2 === j % 2) {
+                grid += '#';
             } else {
-                grid+= " ";
+                grid += ' ';
             }
 
         }
-        grid+= "\n";
+        grid += '\n';
     }
 
     return grid;
@@ -56,7 +54,7 @@ function gridGenerator(num) {
 
 
 function paramify(obj) {
-    let objectString = "";
+    let objectString = '';
     let objKeys = [];
 
     for (key in obj) {
@@ -67,36 +65,32 @@ function paramify(obj) {
 
     objKeys = objKeys.sort();
 
-    for (var i = 0; i< objKeys.length; i++) {
+    for (var i = 0; i < objKeys.length; i++) {
         let key = objKeys[i];
 
-        objectString+=key+ "=" +obj[key];
-        if (i !== objKeys.length-1) {
-            objectString+= "&";
+        objectString += key + '=' + obj[key];
+        if (i !== objKeys.length - 1) {
+            objectString += '&';
         }
-        
     }
 
     return objectString;
 }
 
 
-
 function paramifyObjectKeys(obj) {
-    let objectString = "";
+    let objectString = '';
     let objKeys = Object.keys(obj).sort();
 
 
-    for (var i = 0; i< objKeys.length; i++) {
+    for (var i = 0; i < objKeys.length; i++) {
         let key = objKeys[i];
 
-        objectString+=key+ "=" +obj[key];
-        if (i !== objKeys.length-1) {
-            objectString+= "&";
+        objectString += key + '=' + obj[key];
+        if (i !== objKeys.length - 1) {
+            objectString += '&';
         }
-        
     }
-
 
 
     return objectString;
@@ -104,26 +98,24 @@ function paramifyObjectKeys(obj) {
 
 
 function renameFiles(arr) {
-
+    let renamedArray = [];
     function renaming(fileName, num) {
-        let newName = fileName+"(" + num + ")";
+        let newName = fileName + '(' + num + ')';
         if (!(renamedArray.includes(newName))) {
             return newName;
         } else {
-            newName = renaming(fileName, num+1);
+            newName = renaming(fileName, num + 1);
         }
 
         return newName;
     }
 
-    let renamedArray = [];
-
-    for (var i = 0; i<arr.length; i++) {
+    for (var i = 0; i < arr.length; i++) {
         let name = arr[i];
         if (!(renamedArray.includes(name))) {
             renamedArray.push(name);
         } else {
-            let updatedName = renaming(name,1);
+            let updatedName = renaming(name, 1);
             renamedArray.push(updatedName);
         }
     }
