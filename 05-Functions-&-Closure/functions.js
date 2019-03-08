@@ -62,3 +62,5 @@ function createObjectWithClosures() {
 
     return objClosure;
 }
+
+
