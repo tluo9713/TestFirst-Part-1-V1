@@ -25,6 +25,40 @@ function makeAdder(num) {
 }
 
 
-function once(func) {
- 
+
+function once(input) {
+    var didYouRunOnceYet = false;
+    return function() {
+        
+        if (!didYouRunOnceYet) {
+            didYouRunOnceYet = true;
+            return input();
+        }
+    }
+}
+
+
+
+function createObjectWithClosures() {
+    let placeHolder = 0;
+    let objClosure = {
+
+        oneIncrementer : function() {
+            placeHolder++;
+        },
+
+        tensIncrementer : function () {
+            placeHolder+=10;
+        },
+
+        getValue : function () {
+            return placeHolder;
+        },
+
+        setValue : function(input) {
+            placeHolder = input;
+        }
+    }
+
+    return objClosure;
 }
