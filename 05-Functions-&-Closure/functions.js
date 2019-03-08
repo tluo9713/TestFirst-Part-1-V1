@@ -64,3 +64,39 @@ function createObjectWithClosures() {
 }
 
 
+
+function guestListFns(guestListArray, secretCode) {
+    var hiddenGuestArray = [];
+    var test = guestListArray.slice(0);
+    console.log (test);
+
+    for (var i=0; i<guestListArray.length; i++) {
+        let name = guestListArray[i];
+        var dummy = function(num) {
+            
+            if (num === secretCode) {
+                return name;
+            } else {
+                return "Secret-Code: Invalid";
+            }
+        }
+        
+        hiddenGuestArray.push(dummy);
+        
+    }
+
+    return hiddenGuestArray;
+}
+
+
+
+function generateGuestList(secretList, secretCode) {
+    var guestList = [];
+
+    for (var i = 0; i<secretList.length; i++) {
+        var name = secretList[i](secretCode);
+        guestList.push(name);
+    }
+
+    return guestList;
+}
